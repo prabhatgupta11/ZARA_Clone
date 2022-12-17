@@ -85,23 +85,40 @@
             <a href="#">FORGET YOUR PASSWORD</a>
         
            </div> 
+           
            <div id="register">
             <h1>PERSONAL DETAILS</h1>
-            <input type="text" placeholder="EMAIL">
-            <input type="password" placeholder="PASSWORD">
-            <input type=" password" placeholder="CONFIRM PASSWORD">
+            <input type="text" placeholder="EMAIL" id="email">
+            <input type="password" placeholder="PASSWORD" id="pass">
+            
             <input type="text" placeholder="NAME">
             <input type="text" placeholder="LAST NAME">
 
-
-            <button id="btn">CREATE ACCOUNT</button>
+        
+            <input type="submit" placeholder="CREATE ACCOUNT" id="submit">
            </div>
     </div>
   
 </body>
 <script>
+    let btnn=document.getElementById="btnn"
     let login=document.getElementById="login";
     let register=document.getElementById="register";
+    
+   
+
+   submit.addEventListener("submit",function(event){
+    event.preventDefault();
+
+    let formdata={
+        email:register.email.value,
+        password:pass.value,
+    };
+
+
+    console.log(formdata);
+
+   })
 
 </script>
 </html>
