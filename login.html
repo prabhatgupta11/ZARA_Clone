@@ -56,6 +56,10 @@
         display: flex;
        gap: 100px;
        }
+       #submit{
+        background-color: black;
+        color: aliceblue;
+       }
     </style>
 </head>
 <body>
@@ -116,9 +120,17 @@
     };
 
 
-    console.log(formdata);
+    let lsdata=JSON.parse(localStorage.getItem("create"));
+    if(lsdata==null)
+    {
+        lsdata=[];
+    }
+    lsdata.push(formdata);
 
-   })
+    localStorage.setItem("create",JSON.stringify(lsdata));
+});
+
+   
 
 </script>
 </html>
