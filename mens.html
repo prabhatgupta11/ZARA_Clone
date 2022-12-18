@@ -256,6 +256,9 @@ width: 70%;
   padding: 50px;
 }
 
+#cartitem{
+  text-decoration: none;
+}
 
 
     
@@ -284,7 +287,7 @@ width: 70%;
     <div>
         <div>
             <input id="in" type="text" placeholder="SEARCH ">
-            <p><a href="cart.html">CART ITEM</a></p>
+            <p><a  id="cartitem" href="cart.html">CART ITEM</a></p>
             <div id="help">
                
             </div>
@@ -615,6 +618,7 @@ function mens(data)
     
    let add=document.createElement("button")
    add.innerText="Add To Cart"
+   
      
 
    add.addEventListener("click",() =>{
