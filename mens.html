@@ -284,8 +284,9 @@ width: 70%;
     <div>
         <div>
             <input id="in" type="text" placeholder="SEARCH ">
+            <p><a href="cart.html">CART ITEM</a></p>
             <div id="help">
-    
+               
             </div>
         </div>
 
@@ -296,12 +297,10 @@ width: 70%;
    
     <select  id="fil">
         <option value="">FILTER</option>
-        <option value="">COLOUR</option>
         <option value="">TYPE OF PRODUCT</option>
-        <option value="">SLEEVE TYPE</option>
-        <option value="">SIZE</option>
+         <option value="">SIZE</option>
         <option value="">PRICE</option>
-        <option value="">JOIN LIFE</option>
+        
     </select>
 
 
@@ -397,9 +396,30 @@ width: 70%;
   
 </body>
 <script>
+
+// fiter part
+let filterSelect = document.getElementById("fil");
+
+
+let fetchedData = [];
+
+filterSelect.addEventListener("change",() =>{
+  let filtered = fetchedData.filter((element) =>{
+    if(element.category === filterSelect.value){
+      return true;
+    }else{
+      return false;
+    }
+  })
+  mens(filtered);
+  
+})
+
+
     let database = [
     {
       id: 1,
+      
      img: "https://static.zara.net/photos///2023/V/0/2/p/0761/452/420/2/w/439/0761452420_2_1_1.jpg?ts=1671008648172",
      price: "1650",
       title:"HOODED SWEATSHIRT"
@@ -597,7 +617,29 @@ function mens(data)
    add.innerText="Add To Cart"
      
 
-    card.append(image,title,price,add)
+   add.addEventListener("click",() =>{
+            let cartData = JSON.parse(localStorage.getItem("cart"));
+
+            if(cartData === null) cartData = [];
+
+            let isAdleadyInCart = false;
+            for(let i=0;i<cartData.length;i++){
+              if(cartData[i].id === element.id){
+                isAdleadyInCart = true;
+                break;
+              };
+            }
+
+            if(isAdleadyInCart === true){
+              alert("Product Already in Cart");
+            }else{
+            cartData.push({...element,quantity:1});
+            localStorage.setItem("cart",JSON.stringify(cartData));
+            alert("Product Added To Cart");
+            }
+          })
+
+    card.append(image,title,price,add,add)
     productpage.append(card)
 });
 }
