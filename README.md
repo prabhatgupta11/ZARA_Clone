@@ -1,2 +1,2 @@
 # -new-flower-6187
-Myntra is a major Indian fashion e-commerce company headquartered in Bengaluru, Karnataka, India. 
+It specialises in fast fashion, and sells clothing, accessories, shoes, beauty products and perfumes. 
